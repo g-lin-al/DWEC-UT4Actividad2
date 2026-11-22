@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <input type="text" placeholder="filas" id="nFilas" />
+    <input type="text" placeholder="columnas" id="nColumnas" /><br>
+    <button onclick="btnRellenar()">Generar matriz</button>
+    <p id="resultado"></p>
+
+    <script>
+        function btnRellenar() {
+            let filas = document.getElementById("nFilas").value;
+            let columnas = document.getElementById("nColumnas").value;
+            let resultados = document.getElementById("resultado");
+            let abecedario = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+            let matriz = [];
+            let contador = 0;
+
+            for (let i = 0; i < filas; i++) {
+                let fila_generada = [];
+                for (let j = 0; j < columnas; j++) {
+                    if (contador < 27) {
+                        fila_generada[j] = abecedario[contador];
+                        contador++;
+                    } else {
+                        fila_generada[j] = "-";
+                    }
+                }
+                matriz[i] = fila_generada;
+            }
+
+            console.log(matriz);
+        }
+    </script>
+</body>
+</html>
