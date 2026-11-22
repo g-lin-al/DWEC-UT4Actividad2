@@ -12,17 +12,16 @@
     <p id="resultado"></p>
 
     <script>
-        let filas = document.getElementById("filas").value;
-        let columnas = document.getElementById("columnas").value;
-        let resultados = document.getElementById("resultado");
-        let matriz = [];
-        
         function generarMatriz() {
+            let filas = document.getElementById("filas").value;
+            let columnas = document.getElementById("columnas").value;
+            let resultados = document.getElementById("resultado");
+            let matriz = [];
             for (let i = 0; i < filas; i++) {
                 let fila_generada = [];
                 for (let j = 0; j < columnas; j++) {
                     if (i == j) {
-                        fila_generada[j] = i;
+                        fila_generada[j] = i + 1;
                     } else {
                         fila_generada[j] = "-";
                     }
