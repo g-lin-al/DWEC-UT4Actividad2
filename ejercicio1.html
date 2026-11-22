@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <input type="number" placeholder="filas" id="filas" />
+    <input type="number" placeholder="columnas" id="columnas" /><br>
+    <button onclick="generarMatriz()">Generar matriz</button>
+    <p id="resultado"></p>
+
+    <script>
+        let filas = document.getElementById("filas").value;
+        let columnas = document.getElementById("columnas").value;
+        let resultados = document.getElementById("resultado");
+        let matriz = [];
+        
+        function generarMatriz() {
+            for (let i = 0; i < filas; i++) {
+                let fila_generada = [];
+                for (let j = 0; j < columnas; j++) {
+                    if (i == j) {
+                        fila_generada[j] = i;
+                    } else {
+                        fila_generada[j] = "-";
+                    }
+                }
+                matriz[i] = fila_generada;
+            }
+
+            console.log(matriz);
+        }
+    </script>
+</body>
+</html>
