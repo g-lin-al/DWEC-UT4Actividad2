@@ -4,8 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ejercicio 1</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
+    <h1>Generador de matrices (números diagonales)</h1>
     <input type="number" placeholder="filas" id="filas" />
     <input type="number" placeholder="columnas" id="columnas" /><br>
     <button onclick="generarMatriz()">Generar matriz</button>
@@ -29,7 +36,21 @@
                 matriz[i] = fila_generada;
             }
 
-            console.log(matriz);
+            // console.log(matriz);
+
+
+            // 2. Representarla en HTML
+            const tabla = document.createElement("table");
+            for (let i = 0; i < matriz.length; i++) {
+                const tr = document.createElement("tr");
+                for (let j = 0; j < matriz[i].length; j++) {
+                    const td = document.createElement("td");
+                    td.textContent = matriz[i][j];
+                    tr.appendChild(td);
+                }
+                tabla.appendChild(tr);
+            }
+            resultado.appendChild(tabla);
         }
     </script>
 </body>

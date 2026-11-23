@@ -4,8 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ejercicio 2</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
+    <h1>Matriz abecedario</h1>
     <input type="text" placeholder="filas" id="nFilas" />
     <input type="text" placeholder="columnas" id="nColumnas" /><br>
     <button onclick="btnRellenar()">Generar matriz</button>
@@ -17,13 +24,14 @@
             let columnas = document.getElementById("nColumnas").value;
             let resultados = document.getElementById("resultado");
             let abecedario = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+            // let abecedario = ["а", "б", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я"];
             let matriz = [];
             let contador = 0;
 
             for (let i = 0; i < filas; i++) {
                 let fila_generada = [];
                 for (let j = 0; j < columnas; j++) {
-                    if (contador < 27) {
+                    if (contador < abecedario.length) {
                         fila_generada[j] = abecedario[contador];
                         contador++;
                     } else {
@@ -33,7 +41,20 @@
                 matriz[i] = fila_generada;
             }
 
-            console.log(matriz);
+            // console.log(matriz);
+
+            // 2. Representarla en HTML
+            const tabla = document.createElement("table");
+            for (let i = 0; i < matriz.length; i++) {
+                const tr = document.createElement("tr");
+                for (let j = 0; j < matriz[i].length; j++) {
+                    const td = document.createElement("td");
+                    td.textContent = matriz[i][j];
+                    tr.appendChild(td);
+                }
+                tabla.appendChild(tr);
+            }
+            resultado.appendChild(tabla);
         }
     </script>
 </body>
